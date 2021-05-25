@@ -1,0 +1,5 @@
+### recall recommendation for a given user
+GET http://localhost:5001/?user_id=1
+
+### recall similar animes
+GET http://localhost:5001/sim?anime_id=8086
