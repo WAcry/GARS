@@ -3,11 +3,10 @@
 ## Setup
 
 - Make sure Python 3.8 & virtualenv is installed first
-- (Optional)`virtualenv venv --python=python3`
-- (Optional)`source venv/bin/activate`
+- `virtualenv venv --python=python3`
+- `source venv/bin/activate`
 - `pip install -r requirements.txt`
-- Set correct path of dataset and ports in ./start.sh
-
+- Set correct path of dataset and ports in /recall/config.py
 ## Run
 
 - `source venv/bin/activate`
