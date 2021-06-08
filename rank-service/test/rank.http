@@ -1,0 +1,2 @@
+### Sort result of recall, return top 20 defaulted
+GET http://localhost:5002/?user_id=4
