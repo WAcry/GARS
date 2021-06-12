@@ -1,4 +1,4 @@
-# Rank Service
+# API-Service
 
 ## Setup
 
@@ -6,7 +6,7 @@
 - `virtualenv venv --python=python3`
 - `source venv/bin/activate`
 - `pip install -r requirements.txt`
-- Set correct info (such as port and data directory) in `config.py` and `start.sh`
+- Set correct path of dataset and ports in /recall/config.py
 
 ## Run
 
@@ -16,7 +16,10 @@
 ## API
 
 - `GET` `/?user_id=<uid>`
-    - Get rank results for a user
-    - Returns list of anime ids
+    - Get anime recommends for a user
+
+
+- `GET` `/sim?anime_id=<aid>`
+    - Get similar animes for a given one
 
 Check examples in /test dir
