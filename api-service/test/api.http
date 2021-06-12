@@ -1,0 +1,9 @@
+###
+GET http://localhost:5003/?user_id=9
+
+###
+GET http://localhost:5003/sim?anime_id=8086
+
+###
+GET http://localhost:5003/anime/8086
+

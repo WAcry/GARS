@@ -9,5 +9,6 @@
     <orderEntry type="module" module-name="web-service" />
     <orderEntry type="module" module-name="recall-service" />
     <orderEntry type="module" module-name="rank-service" />
+    <orderEntry type="module" module-name="api-service" />
   </component>
 </module>
