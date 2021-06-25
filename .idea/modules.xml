@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/api-service/.idea/api-service.iml" filepath="$PROJECT_DIR$/api-service/.idea/api-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/gars.iml" filepath="$PROJECT_DIR$/.idea/gars.iml" />
+      <module fileurl="file://$PROJECT_DIR$/kafka-service/.idea/kafka-service.iml" filepath="$PROJECT_DIR$/kafka-service/.idea/kafka-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/rank-service/.idea/rank-service.iml" filepath="$PROJECT_DIR$/rank-service/.idea/rank-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/recall-service/.idea/recall-service.iml" filepath="$PROJECT_DIR$/recall-service/.idea/recall-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/web-service/.idea/web-service.iml" filepath="$PROJECT_DIR$/web-service/.idea/web-service.iml" />

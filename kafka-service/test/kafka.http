@@ -1,0 +1,8 @@
+###
+POST http://localhost:5000/views
+Content-Type: application/json
+
+{
+  "user_id": 7,
+  "anime_id": 1
+}
