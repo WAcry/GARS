@@ -20,5 +20,10 @@ docker-compose up -d
 
 docker ps # to check if everything is ok (should have 2 containers running for kafka and zookeeper)
 
+## start
+
+`flask run` to start app.py simply
+use start-consumer.sh to start kafka consumer
+
 
 

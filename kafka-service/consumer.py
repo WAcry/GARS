@@ -8,7 +8,7 @@ import datetime
 KAFKA_TOPIC = os.environ.get('KAFKA_TOPIC')
 
 # cloud_config= {
-#     'secure_connect_bundle': 'secure-connect-concrec.zip'
+#     'secure_connect_bundle': 'secure-connect-driver.zip'
 # }
 # auth_provider = PlainTextAuthProvider(os.environ.get("ASTRA_ID"), os.environ.get("ASTRA_KEY"))
 # cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
