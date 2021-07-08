@@ -14,7 +14,7 @@ class HighRatingStrategy(RecallStrategy):
 
     def build_pool(self):
         (anime_df, _) = dataset.load_dataset()
-        sorted_df = anime_df.sort_values(by=['rating'], ascending=False)
+        sorted_df = anime_df.sort_values(by=['ave_rating_scaled'], ascending=False)
         self.pool = sorted_df.iloc[:500].index.to_list()
         print(f'{self.name()} pool loaded.')
 

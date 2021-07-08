@@ -9,7 +9,7 @@ from functools import lru_cache
 
 @lru_cache()
 def load_dataset():
-    anime_df = pd.read_csv(join(config['dataset_path'], 'anime.csv'), index_col='anime_id')
+    anime_df = pd.read_csv(join(config['dataset_path'], 'anime_feature.csv'), index_col='anime_id')
     rating_df = pd.read_csv(join(config['dataset_path'], 'rating.csv'))
 
     return (anime_df, rating_df)

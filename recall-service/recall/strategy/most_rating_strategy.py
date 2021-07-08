@@ -14,7 +14,7 @@ class MostRatingStrategy(RecallStrategy):
 
     def build_pool(self):
         (anime_df, _) = dataset.load_dataset()
-        sorted_df = anime_df.sort_values(by=['members'], ascending=False)
+        sorted_df = anime_df.sort_values(by=['rating_count_standard'], ascending=False)
         self.pool = sorted_df.iloc[:500].index.to_list()
         print(f'{self.name()} pool loaded.')
 
