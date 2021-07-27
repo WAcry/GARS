@@ -3,9 +3,12 @@ from typing import List
 import recall.strategy as strategy
 import concurrent.futures
 import time
+from recall.model.lsh import get_item_lsh
+from recall.dataset.embedding import get_one_item_embedding
 from recall import util
 
 strategies: List[strategy.RecallStrategy] = [
+    strategy.UserEmbeddingStrategy(),
     strategy.HighRatingStrategy(),
     strategy.MostRatingStrategy(),
 ]
@@ -27,8 +30,10 @@ def anime_recall(context: Context, n=20) -> List[int]:
 
 
 def similar_animes(context: Context, n=20) -> List[int]:
-    stra = strategy.SimilarAnimeStrategy()
-    return stra.recall(context, n)
+    lsh = get_item_lsh()
+    target_item_emb = get_one_item_embedding(context.anime_id)
+    outputs = lsh.search(target_item_emb, n=n)
+    return outputs
 
 
 def run_strategy(strategy: strategy.RecallStrategy, context: Context, n):
