@@ -23,3 +23,12 @@
     - Returns list of anime ids
 
 Check examples in /test dir
+
+## Train Embedding Model
+
+- setup redis (docker is the easiest way) and run redis-server first
+- setup correct config in /recall/config.py
+- `source venv/bin/activate`
+- `./train.sh`
+
+
