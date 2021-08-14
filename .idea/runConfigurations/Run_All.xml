@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run All" type="CompoundRunConfigurationType">
+    <toRun name="Flask (api-service/app.py)" type="Python.FlaskServer" />
+    <toRun name="Flask (rank-service/app.py)" type="Python.FlaskServer" />
+    <toRun name="Flask (recall-service/app.py)" type="Python.FlaskServer" />
+    <toRun name="npm (web-service/run serve)" type="js.build_tools.npm" />
+    <method v="2" />
+  </configuration>
+</component>
