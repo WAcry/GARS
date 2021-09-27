@@ -8,6 +8,10 @@
 - `pip install -r requirements.txt`
 - Set correct info (such as port and data directory) in `config.py` and `start.sh`
 
+- Make sure Redis is running (install and start redis and redis-server)
+- Run Feat Eng.ipynb to store initial newest feature data in redis
+- Model is trained already by MLP.ipynb, so no need to train again
+
 ## Run
 
 - `source venv/bin/activate`
