@@ -1,9 +1,11 @@
 from tensorflow import keras
 
+from rank.config import config
+
 
 class RankModel:
     def __init__(self) -> None:
-        self.model = keras.models.load_model('mlp_model')
+        self.model = keras.models.load_model(config['model_path'])
 
     # xs: list of features
     # [
