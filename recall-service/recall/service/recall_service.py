@@ -14,26 +14,36 @@ strategies: List[strategy.RecallStrategy] = [
 ]
 
 
-def anime_recall(context: Context, n=20) -> List[int]:
+def anime_recall(context: Context, n=20):
     """
     returns a list of anime ids
     """
+
+    # AB test
+    # A: strategy 1, 2
+    # B: strategy 0, 1, 2
+    experiment_strategies = strategies
+    bucket = util.bucketize(context.user_id, 2)
+    if bucket == 1:
+        experiment_strategies = strategies[1:]
+    print(f"user_id {context.user_id}, experiment {bucket}")
+
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        outputs = executor.map(lambda s: run_strategy(s, context, n), strategies)
+        outputs = executor.map(lambda s: run_strategy(s, context, n), experiment_strategies)
         # outputs = [[1, 2, 3], [3, 4, 5]]
         outputs = [aid for l in outputs for aid in l]
         # outputs = [1, 2, 3, 3, 4, 5]
         outputs = list(dict.fromkeys(outputs))
         # outputs = [1, 2, 3, 4, 5]
         print(f'Got {len(outputs)} uniq recall results')
-        return outputs
+        return [{'anime_id': id, 'ab_recall': bucket} for id in outputs]
 
 
-def similar_animes(context: Context, n=20) -> List[int]:
+def similar_animes(context: Context, n=20):
     lsh = get_item_lsh()
     target_item_emb = get_one_item_embedding(context.anime_id)
     outputs = lsh.search(target_item_emb, n=n)
-    return outputs
+    return [{'anime_id': id} for id in outputs]
 
 
 def run_strategy(strategy: strategy.RecallStrategy, context: Context, n):
