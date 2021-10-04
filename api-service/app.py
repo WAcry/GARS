@@ -8,8 +8,10 @@ app = Flask('api-service')
 @app.route("/")
 def get_recommends():
     user_id = request.args.get('user_id', type=int)
-    rec_anime_ids = rank_client.get_anime(user_id)
-    res = [get_anime(id) for id in rec_anime_ids]
+    rec_animes = rank_client.get_anime(user_id)
+    for item in rec_animes:
+        item['anime'] = get_anime(item['anime_id'])
+    res = rec_animes
 
     response = jsonify(res)
     response.headers.add('Access-Control-Allow-Origin', '*')
@@ -22,11 +24,10 @@ def get_similar_animes():
     if anime_id is None:
         return 'bad anime id', 400
 
-    print(anime_id)
-
-    sim_anime_ids = rank_client.get_similar_anime(anime_id)
-    print(sim_anime_ids)
-    res = [get_anime(id) for id in sim_anime_ids]
+    sim_animes = rank_client.get_similar_anime(anime_id)
+    for item in sim_animes:
+        item['anime'] = get_anime(item['anime_id'])
+    res = sim_animes
 
     response = jsonify(res)
     response.headers.add('Access-Control-Allow-Origin', '*')
