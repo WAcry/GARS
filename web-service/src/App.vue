@@ -9,14 +9,14 @@
 
     <div v-else>
       <anime
-        :id="currentAnime.anime_id"
-        :japanese_title="currentAnime.japanese_title"
-        :title="currentAnime.name"
-        :img_url="currentAnime.image_url"
-        :genres="currentAnime.genre"
-        :aired="currentAnime.aired"
-        :rating="currentAnime.rating"
-        :members="currentAnime.members"
+          :id="currentAnime.anime_id"
+          :japanese_title="currentAnime.japanese_title"
+          :title="currentAnime.name"
+          :img_url="currentAnime.image_url"
+          :genres="currentAnime.genre"
+          :aired="currentAnime.aired"
+          :rating="currentAnime.rating"
+          :members="currentAnime.members"
       >
       </anime>
       <br>
@@ -28,11 +28,13 @@
       <div v-for="group in itemsGroup" :key="group" class="row">
         <div v-for="item in group" :key="item" class="col">
           <cell
-            :id="item.anime_id"
-            :japanese_title="item.japanese_title"
-            :title="item.name"
-            :img_url="item.image_url"
-            :genres="item.genre"
+              :id="item.anime_id"
+              :japanese_title="item.anime.japanese_title"
+              :title="item.anime.name"
+              :img_url="item.anime.image_url"
+              :genres="item.anime.genre"
+              :ab_recall="item['ab_recall']"
+              :ab_rank="item['ab_rank']"
           >
           </cell>
         </div>
