@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     abtests () {
-      return `recall : ${this.ab_recall}, rank : ${this.ab_rank}`
+      return `AB recall strategy : ${this.ab_recall}, AB rank strategy: ${this.ab_rank}`
     }
   }
 }

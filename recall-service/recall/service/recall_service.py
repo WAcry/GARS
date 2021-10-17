@@ -20,13 +20,13 @@ def anime_recall(context: Context, n=20):
     """
 
     # AB test
-    # A: strategy 1, 2
-    # B: strategy 0, 1, 2
+    # A (bucket 0): strategy 0, 1, 2
+    # B (bucket 1): strategy 0
     experiment_strategies = strategies
     bucket = util.bucketize(context.user_id, 2)
     if bucket == 1:
-        experiment_strategies = strategies[1:]
-    print(f"user_id {context.user_id}, experiment {bucket}")
+        experiment_strategies = strategies[:1]
+    print(f"user_id {context.user_id}, ab strategy {bucket}")
 
     with concurrent.futures.ThreadPoolExecutor() as executor:
         outputs = executor.map(lambda s: run_strategy(s, context, n), experiment_strategies)

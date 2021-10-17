@@ -29,6 +29,6 @@ Check examples in /test dir
 - setup redis (docker is the easiest way) and run redis-server first
 - setup correct config in /recall/config.py
 - `source venv/bin/activate`
-- `./train.sh`
+- `./train.sh` and the word2vec model will be stored in redis
 
 

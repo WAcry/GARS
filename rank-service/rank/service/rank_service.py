@@ -1,3 +1,5 @@
+import random
+
 import rank.util.recall_service_client as recall_client
 import rank.dataset.feature as dataset
 from rank.model.mlp import RankModel
@@ -11,6 +13,11 @@ model = RankModel()
 def anime_rank(context):
     user_id = context.user_id
     recall_items = recall_client.get_recall(user_id)
+
+    # AB test
+    # A (bucket 0): return random items
+    # B (bucket 1): return items suggested by model
+    random.shuffle(recall_items)
 
     bucket = bucketize(user_id, 2)
     print("bucket 0")
