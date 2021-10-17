@@ -12,5 +12,6 @@
     <orderEntry type="module" module-name="rank-service" />
     <orderEntry type="module" module-name="api-service" />
     <orderEntry type="module" module-name="kafka-service" />
+    <orderEntry type="module" module-name="flink-realtime-feature" />
   </component>
 </module>

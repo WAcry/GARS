@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/api-service/.idea/api-service.iml" filepath="$PROJECT_DIR$/api-service/.idea/api-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flink-realtime-feature/.idea/flink-realtime-feature.iml" filepath="$PROJECT_DIR$/flink-realtime-feature/.idea/flink-realtime-feature.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/gars.iml" filepath="$PROJECT_DIR$/.idea/gars.iml" />
       <module fileurl="file://$PROJECT_DIR$/kafka-service/.idea/kafka-service.iml" filepath="$PROJECT_DIR$/kafka-service/.idea/kafka-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/rank-service/.idea/rank-service.iml" filepath="$PROJECT_DIR$/rank-service/.idea/rank-service.iml" />
