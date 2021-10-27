@@ -1,7 +1,7 @@
 from typing import Dict, List
 import numpy as np
 import faiss
-from recall.dataset.embedding import get_one_user_embedding, get_all_item_embedding
+from recall.dataset.embedding import get_one_user_embedding, get_all_item_embedding, get_all_item_meta_embedding
 
 
 class LSH:
@@ -48,3 +48,14 @@ def get_item_lsh() -> LSH:
         __lsh__ = LSH(item_embeddings)
 
     return __lsh__
+
+__meta_lsh__ = None
+
+def get_item_meta_lsh() -> LSH:
+    global __meta_lsh__
+
+    if __meta_lsh__ is None:
+        item_meta_embeddings = get_all_item_meta_embedding()
+        __meta_lsh__ = LSH(item_meta_embeddings)
+
+    return __meta_lsh__

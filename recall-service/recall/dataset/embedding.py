@@ -2,12 +2,13 @@ from typing import Dict, List
 from redis import Redis
 from recall.config import config
 
+
 redis_config = config['redis']
 redis = Redis(host=redis_config['host'], port=redis_config['port'], db=redis_config['db'])
 
 ITEM_EMB_KEY = 'recall:emb:item'
 USER_EMB_KEY = 'recall:emb:user'
-
+ITEM_META_EMB_KEY = 'recall:emb:item:meta'
 
 def save_item_embedding(item_emb: Dict):
     """
@@ -31,6 +32,11 @@ def get_one_item_embedding(item_id: int) -> List[float]:
         return None
     return parse_vector_string(emb.decode())
 
+def get_one_item_meta_embedding(item_id: int) -> List[float]:
+    emb = redis.hget(ITEM_META_EMB_KEY, item_id)
+    if emb is None:
+        return None
+    return parse_vector_string(emb.decode())
 
 def get_one_user_embedding(user_id: int) -> List[float]:
     emb = redis.hget(USER_EMB_KEY, user_id)
@@ -44,6 +50,10 @@ def get_all_item_embedding() -> Dict[int, List[float]]:
     res = {int(k.decode()): parse_vector_string(v.decode()) for (k, v) in data.items()}
     return res
 
+def get_all_item_meta_embedding() -> Dict[int, List[float]]:
+    data = redis.hgetall(ITEM_META_EMB_KEY)
+    res = {float(k.decode()): parse_vector_string(v.decode()) for (k, v) in data.items()}
+    return res
 
 def stringify_vector(vec):
     if vec is None:
