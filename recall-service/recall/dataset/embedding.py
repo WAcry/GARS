@@ -35,7 +35,7 @@ def get_one_item_embedding(item_id: int) -> List[float]:
 def get_one_item_meta_embedding(item_id: int) -> List[float]:
     emb = redis.hget(ITEM_META_EMB_KEY, item_id)
     if emb is None:
-        return None
+        return get_one_item_embedding(item_id)
     return parse_vector_string(emb.decode())
 
 def get_one_user_embedding(user_id: int) -> List[float]:
@@ -52,6 +52,8 @@ def get_all_item_embedding() -> Dict[int, List[float]]:
 
 def get_all_item_meta_embedding() -> Dict[int, List[float]]:
     data = redis.hgetall(ITEM_META_EMB_KEY)
+    if data is None or len(data) == 0:
+        return get_all_item_embedding()
     res = {float(k.decode()): parse_vector_string(v.decode()) for (k, v) in data.items()}
     return res
 
