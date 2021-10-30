@@ -32,5 +32,3 @@ edit start-consumer.sh to change mode (view or click) and topic name
 use start-consumer.sh to start kafka consumer
 request to app.py and view/click will be sent to kafka then stored in cassandra
 
-
-
