@@ -4,7 +4,7 @@ This project implements a recommendation system for anime using modern machine l
 
 ## Tech Stacks
 
-Python 3, Flask, Spark, Kafka, Flink, Redis, Tensorflow Keras, Docker, Vue.js, Scrapy, Cassandra
+**Python 3, Flask, Spark, Kafka, Flink, Redis, Tensorflow Keras, Docker, Vue.js, Scrapy, Cassandra**
 
 ## Features
 
@@ -15,7 +15,7 @@ Python 3, Flask, Spark, Kafka, Flink, Redis, Tensorflow Keras, Docker, Vue.js, S
 
 ## Benchmark
 
-Trained model used in rank-service has about 80% accuracy on the test-dataset 
+Trained model used in rank-service has about **80% accuracy** on the test-dataset 
 predicting if a user will like an anime (rating > 7).
 
 ## Project Structure
@@ -40,12 +40,12 @@ predicting if a user will like an anime (rating > 7).
 
 ### Recall Service
 
-Recall service is the first filter of the recommendation system.
-It is responsible for return a large list of anime recommendations from the original very large dataset.
+This microservice is the first filter of the recommendation system.
+It is responsible for return a **large** list of anime recommendations from the original very large dataset.
 Because the original dataset is too large, it needs to use simple and fast strategies.
 
-The most important strategy here is the Item2Vec Model, works with locality sensitive hashing algorithm.
-The model input is generated based on Deep Walk algorithm and Min-Max Scaler, and the output is stored in Redis.
+The most important strategy here is the **Item2Vec** Model, works with **locality sensitive hashing** algorithm that finds close user embedding and anime embedding.
+The model input is generated based on **Deep Walk** algorithm and **Min-Max Scaler**, and the output is stored in **Redis**.
 
 
 #### Setup
@@ -98,15 +98,15 @@ source venv/bin/activate
 
 ### Rank Service
 
-Rank Service is the second filter of the recommendation system.
-It is responsible for return a small list of anime recommendations based on returns from recall service.
+This microservice is the second filter of the recommendation system.
+It is responsible for return a **small** list of anime recommendations based on returns from recall service.
 
-Collaborative filtering algorithm is implemented here to generate recommendations. While, MLP model shows a better performance and replace collaborative filtering algorithm.
+**Collaborative filtering** algorithm is implemented here to generate recommendations. While, MLP model shows a better performance and replace collaborative filtering algorithm.
 
-Tensorflow is used to train a MLP model to predict user's like animes, based on user features (top preferred tags, avg rating, etc)
-and anime features (tags, release date, etc). Hparams and Tensorboard are used to monitor the training process and find the best hyperparameters of MLP. The model has 80% accuracy on the test-dataset predicting if a user will like an anime (rating > 7).
+**Tensorflow** is used to train a MLP model to predict user's like animes, based on user features (top preferred tags, avg rating, etc)
+and anime features (tags, release date, etc). **Hparams** and **Tensorboard** are used to monitor the training process and find the best hyperparameters of MLP. The model has **80% accuracy** on the test-dataset predicting if a user will like an anime (rating > 7).
 
-End to end embedding strategy is used to for categorical features. Here's how the model looks like:
+**End to end embedding** strategy is used to for categorical features. Here's how the model looks like:
 ![](https://raw.githubusercontent.com/Quakiq/tinyimages/main/img202206260822843.png)
 
 #### Setup
@@ -148,7 +148,7 @@ source venv/bin/activate
 
 ### Kafka Service
 
-Monitor user's click actions and send to Kafka in real-time.
+This microservice monitors user's click actions and send to Kafka in **real-time**.
 
 #### Setup
 
@@ -196,7 +196,7 @@ flask run
 
 ### Flink Service
 
-Use Flink to get new clicks from kafka and write new features to redis in real-time.
+This microservice uses Flink to get new clicks from kafka and write new features to redis in **real-time**.
 
 #### Setup
 
@@ -225,6 +225,8 @@ source venv/bin/activate
 ```
 
 ### API Service
+
+This microservice is the backend controller for GARS
 
 #### Setup
 
@@ -296,6 +298,4 @@ fast, otherwise you may be banned from scraping.
 `parsed_anime.csv` reformat dates in merged.csv
 
 `animelist` directory contains a scrapy spider that scrapes anime data from animelist.net
-
-
 
