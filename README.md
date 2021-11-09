@@ -1,4 +1,4 @@
-# Great Anime Recommendation System (GARS)
+# Great Anime Recommendation System
 
 This project implements a recommendation system for anime using modern machine learning techniques.
 
@@ -281,7 +281,7 @@ npm run serve
 ```
 
 
-### Dataset
+### Dataset & Spider
 
 The dataset used in this project is collected from [MyAnimeList](https://myanimelist.net/). It contains 
 each user's rating on different animes, and also all information about each anime.
